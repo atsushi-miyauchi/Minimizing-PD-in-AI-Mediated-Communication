@@ -1,0 +1,37 @@
+# Evaluate AIS scores against exact one-step improvements for all remaining
+# candidates.  Each k follows its own AIS-Greedy trajectory.
+
+seed: 20260702
+results_dir: ../../results/additional/ais_score_diagnostic
+
+datasets:
+  - name: wiki-Vote
+    path: ../../data/raw/soc-wiki-Vote.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: hamster
+    path: ../../data/raw/soc-hamster.edges
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: false
+
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-6
+eq_max_iter: 1000
+linear_tol: 1.0e-6
+linear_max_iter: 1000
+linear_solver: bicgstab
+opinion_settings: [uniform, polarized]
+alpha_settings: [homogeneous, heterogeneous]
+ais_k_values: [1, 10, 100]
+budget_max: 500
+
+resume: true
+generate_plots: true
+require_cpp_backend: true
+fail_on_nonconvergence: true
+fail_on_adjoint_nonconvergence: true

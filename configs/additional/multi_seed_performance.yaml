@@ -1,0 +1,49 @@
+# Repeat the main deactivation benchmark over five independent parameter
+# draws.  USampling still uses five repetitions within each seed.
+
+seeds: [20260702, 20260703, 20260704, 20260705, 20260706]
+results_dir: ../../results/additional/multi_seed_performance
+datasets:
+  - name: wiki-Vote
+    path: ../../data/raw/soc-wiki-Vote.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: hamster
+    path: ../../data/raw/soc-hamster.edges
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: false
+  - name: advogato
+    path: ../../data/raw/soc-advogato.edges
+    directed: true
+    weighted: true
+    delimiter: null
+    has_header: false
+  - name: epinions
+    path: ../../data/raw/soc-epinions.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+
+opinion_settings: [uniform, polarized]
+alpha_settings: [homogeneous, heterogeneous]
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-6
+eq_max_iter: 1000
+linear_tol: 1.0e-6
+linear_max_iter: 1000
+linear_solver: bicgstab
+budget_max: 500
+algorithm_timeout_sec: 1800
+usampling_greedy_k_values: [1, 10, 100]
+random_repetitions: 5
+neighbor_pd_greedy_k_values: [1, 10, 100]
+ais_greedy_k_values: [1, 10, 100]
+resume: true
+generate_plots: true
+require_cpp_backend: true

@@ -1,0 +1,26 @@
+# Exhaustive optimum versus Greedy on soc-dolphins.
+
+seed: 20260702
+results_dir: ../../results/additional/exact_optimum_small_networks
+datasets:
+  - name: soc-dolphins
+    path: ../../data/raw/additional/soc-dolphins.mtx
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: true
+
+opinion_settings: [uniform, polarized]
+alpha_settings: [homogeneous, heterogeneous]
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-10
+eq_max_iter: 10000
+budget_max: 6
+checkpoint_every: 100
+progress_every: 100
+migration_progress_every: 1000000
+fail_on_nonconvergence: true
+resume: true
+generate_plots: true
+require_cpp_backend: true

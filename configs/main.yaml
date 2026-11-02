@@ -1,0 +1,63 @@
+# Main experiments: transformation effect (Figure 1) and deactivation
+# performance (Figure 2) on all six networks used in the paper.
+
+seed: 20260702
+results_dir: ../results/main
+
+datasets:
+  - name: wiki-Vote
+    path: ../data/raw/soc-wiki-Vote.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: hamster
+    path: ../data/raw/soc-hamster.edges
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: false
+  - name: advogato
+    path: ../data/raw/soc-advogato.edges
+    directed: true
+    weighted: true
+    delimiter: null
+    has_header: false
+  - name: epinions
+    path: ../data/raw/soc-epinions.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: Slashdot0902
+    path: ../data/raw/soc-Slashdot0902.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: youtube
+    path: ../data/raw/soc-youtube.mtx
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: true
+
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-6
+eq_max_iter: 1000
+linear_tol: 1.0e-6
+linear_max_iter: 1000
+linear_solver: bicgstab
+
+opinion_settings: [uniform, polarized]
+alpha_settings: [homogeneous, heterogeneous]
+budget_max: 500
+alpha_start: 1.0
+alpha_stop: 3.0
+alpha_step: 0.1
+algorithm_timeout_sec: 1800
+usampling_greedy_k_values: [1, 10, 100]
+random_repetitions: 5
+neighbor_pd_greedy_k_values: [1, 10, 100]
+ais_greedy_k_values: [1, 10, 100]

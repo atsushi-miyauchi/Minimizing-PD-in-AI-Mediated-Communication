@@ -1,0 +1,30 @@
+# Short smoke test. These reduced settings are not the paper experiment.
+
+seed: 20260702
+results_dir: ../results/quick
+datasets:
+  - name: wiki-Vote
+    path: ../data/raw/soc-wiki-Vote.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-6
+eq_max_iter: 1000
+linear_tol: 1.0e-6
+linear_max_iter: 1000
+linear_solver: bicgstab
+opinion_settings: [uniform, polarized]
+alpha_settings: [homogeneous, heterogeneous]
+budget_max: 5
+alpha_start: 1.0
+alpha_stop: 3.0
+alpha_step: 0.5
+algorithm_timeout_sec: 60
+usampling_greedy_k_values: [10]
+random_repetitions: 1
+neighbor_pd_greedy_k_values: [10]
+ais_greedy_k_values: [10]

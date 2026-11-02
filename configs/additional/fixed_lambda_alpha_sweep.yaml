@@ -1,0 +1,57 @@
+# Diagnostic comparing the paper's fixed-lambda alpha sweep with a sweep that
+# recomputes lambda at every alpha.
+
+seed: 20260702
+results_dir: ../../results/additional/fixed_lambda_alpha_sweep
+datasets:
+  - name: wiki-Vote
+    path: ../../data/raw/soc-wiki-Vote.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: hamster
+    path: ../../data/raw/soc-hamster.edges
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: false
+  - name: advogato
+    path: ../../data/raw/soc-advogato.edges
+    directed: true
+    weighted: true
+    delimiter: null
+    has_header: false
+  - name: epinions
+    path: ../../data/raw/soc-epinions.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: Slashdot0902
+    path: ../../data/raw/soc-Slashdot0902.mtx
+    directed: true
+    weighted: false
+    delimiter: null
+    has_header: true
+  - name: youtube
+    path: ../../data/raw/soc-youtube.mtx
+    directed: false
+    weighted: false
+    delimiter: null
+    has_header: true
+
+eps: 0.01
+lambda_cap: 0.5
+eq_tol: 1.0e-6
+eq_max_iter: 1000
+opinion_settings: [uniform, polarized]
+alpha_start: 1.0
+alpha_stop: 3.0
+alpha_step: 0.1
+lambda_reference_alpha: 3.0
+lambda_regimes: [fixed_at_reference, recomputed_each_alpha]
+resume: true
+generate_plots: true
+require_cpp_backend: true
+fail_on_nonconvergence: true

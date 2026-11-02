@@ -1,0 +1,29 @@
+# Derive actual incumbent-set sizes from the saved main-experiment CSVs.
+# This analysis does not rerun an optimization algorithm.
+
+results_dir: ../../results/additional/selected_set_size
+inputs:
+  - dataset: wiki-Vote
+    path: ../../results/main/wiki-Vote/deactivation.csv
+  - dataset: hamster
+    path: ../../results/main/hamster/deactivation.csv
+  - dataset: advogato
+    path: ../../results/main/advogato/deactivation.csv
+  - dataset: epinions
+    path: ../../results/main/epinions/deactivation.csv
+  - dataset: Slashdot0902
+    path: ../../results/main/Slashdot0902/deactivation.csv
+  - dataset: youtube
+    path: ../../results/main/youtube/deactivation.csv
+
+exclude_methods: [No-AI-Mediation]
+exclude_timed_out: true
+plot_methods:
+  - USampling-Greedy (k=100)
+  - NeighborPD-Greedy (k=100)
+  - AIS-Greedy (k=100)
+  - Greedy
+resume: true
+checkpoint_every: 1000
+progress_every: 5000
+generate_plots: true
